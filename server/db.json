@@ -1,0 +1,31 @@
+{
+    "users": [
+      {
+        "_id": "1234",
+        "firstName": "Andrew",
+        "lastName": "Owen",
+        "profession": "Barber",
+        "gender": "Male",
+        "image": "",
+        "dateOfBirth": 26
+      },
+      {
+        "_id": "1235",
+        "firstName": "Susan",
+        "lastName": "Que",
+        "profession": "Dentist",
+        "gender": "Female",
+        "image": "",
+        "dateOfBirth": 45
+      },
+      {
+        "_id": "1236",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profession": "Businessman",
+        "gender": "Male",
+        "image": "",
+        "dateOfBirth": 53
+      }
+    ]
+  }
