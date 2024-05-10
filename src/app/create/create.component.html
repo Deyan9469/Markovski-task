@@ -9,12 +9,15 @@
   
         <label for="exampleInputProfession" class="form-label">Profession</label>
         <input type="text" class="form-control" id="exampleInputProfession" formControlName="profession">
+        
+        <label for="exampleInputImage" class="form-label">Image Url</label>
+        <input type="text" class="form-control" id="exampleInputImage" formControlName="image">        
   
-        <label for="exampleInputGenre" class="form-label">Genre</label>
-        <select class="form-select" id="inputGroupSelect01" formControlName="genre">
+        <label for="exampleInputgender" class="form-label">Gender</label>
+        <select class="form-select" id="inputGroupSelect01" formControlName="gender">
           <option selected>Please select</option>
-          <option value="1">Male</option>
-          <option value="2">Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
   
         <div class="row">
@@ -28,11 +31,10 @@
           </div>
           <div class="form-group col-sm-4">
             <label for="year">Year</label>
-            <input type="number" id="year" class="form-control form-control-sm" formControlName="year" min="1900" max="9999">
+            <input type="number" id="year" class="form-control form-control-sm" formControlName="year" min="1900" max="2024">
           </div>
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
-  
