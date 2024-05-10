@@ -1,17 +1,17 @@
 <div class="container">
-<div class="card">
-    <img src="https://t3.ftcdn.net/jpg/01/65/63/94/360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg" class="card-img-top" alt="...">
+<div class="card" *ngFor="let user of users">
+    <img src={{user.image}} class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Name</h5>
+      <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Profession</li>
-      <li class="list-group-item">Genre</li>
-      <li class="list-group-item">Age</li>
+      <li class="list-group-item">Profession: {{user.profession}}</li>
+      <li class="list-group-item">Genre: {{user.gender}}</li>
+      <li class="list-group-item">Age: {{user.dateOfBirth}}</li>
       <li class="list-group-item">Day of birth</li>
     </ul>
     <div class="card-body">
-      <a routerLink="/edit/:userId" class="btn btn-primary">Edit</a>
+      <a routerLink="/edit/{{user._id}}" class="btn btn-primary">Edit</a>
       <a href="#" class="btn btn-primary">Delete</a>
     </div>
   </div>
