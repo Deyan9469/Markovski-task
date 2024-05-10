@@ -7,8 +7,8 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Profession: {{user.profession}}</li>
       <li class="list-group-item">Genre: {{user.gender}}</li>
-      <li class="list-group-item">Age: {{user.dateOfBirth}}</li>
-      <li class="list-group-item">Day of birth</li>
+      <li class="list-group-item">Age: {{user.age}}</li>
+      <li class="list-group-item">Birth: {{user.day}}/{{user.month}}/{{user.year}}</li>
     </ul>
     <div class="card-body">
       <a routerLink="/edit/{{user._id}}" class="btn btn-primary">Edit</a>
