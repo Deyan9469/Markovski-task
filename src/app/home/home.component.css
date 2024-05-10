@@ -1,7 +1,13 @@
 .container {
     margin: auto;
-    padding: 20px;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .card{
     width: 25%;
+}
+.btn{
+    margin: 0px 10px;
 }
