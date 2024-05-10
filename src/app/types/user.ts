@@ -5,5 +5,8 @@ export interface User {
     profession: string,
     gender: string,
     image: string,
-    dateOfBirth: 26
+    age: number,
+    day: number,
+    month: number,
+    year: number,
 };

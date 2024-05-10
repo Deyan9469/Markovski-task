@@ -7,7 +7,10 @@
         "profession": "Barber",
         "gender": "Male",
         "image": "https://t3.ftcdn.net/jpg/01/65/63/94/360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg",
-        "dateOfBirth": 26
+        "age": 26,
+        "day": 2,
+        "month": 5,
+        "year": 1996
       },
       {
         "_id": "1235",
@@ -16,7 +19,10 @@
         "profession": "Dentist",
         "gender": "Female",
         "image": "https://t3.ftcdn.net/jpg/01/65/63/94/360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg",
-        "dateOfBirth": 45
+        "age": 30,
+        "day": 22,
+        "month": 3,
+        "year": 1994
       },
       {
         "_id": "1236",
@@ -25,7 +31,10 @@
         "profession": "Businessman",
         "gender": "Male",
         "image": "https://t3.ftcdn.net/jpg/01/65/63/94/360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg",
-        "dateOfBirth": 53
+        "age": 34,
+        "day": 15,
+        "month": 2,
+        "year": 1990
       }
     ]
   }
