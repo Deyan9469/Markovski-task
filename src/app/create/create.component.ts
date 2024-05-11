@@ -24,8 +24,10 @@ export class CreateComponent implements OnInit {
     month: new FormControl(''),
     year: new FormControl(''),
   });
+
   modalRef!: NgbModalRef;
   selectedGender: string = '';
+  errorMessage: string = '';
 
   constructor(private userService: UserService, private fb: FormBuilder,
     private modalService: NgbModal, private router: Router) { }
@@ -53,7 +55,8 @@ export class CreateComponent implements OnInit {
 
   onSubmit() {
     if (this.form.invalid) {
-      return;
+      this.errorMessage = 'Please check all fields'
+      return
     }
     let currentDate = new Date();
     let currentYear = currentDate.getFullYear();
@@ -74,13 +77,14 @@ export class CreateComponent implements OnInit {
       age: calcAge,
     };
 
-    this.userService.createUser(userData).subscribe(() => {
-      this.router.navigate(['/']);
+    this.userService.createUser(userData).subscribe({
+      next: () => { this.router.navigate(['/']) },
+      error: (err) => this.errorMessage = err
     })
-    console.log(userData);
-    console.log(calcAge);
-    console.log(id);
-
   }
-}
 
+  clearErrorMessage() {
+    this.errorMessage = '';
+  }
+
+}
