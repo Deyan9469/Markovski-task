@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../types/user';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PopupComponent } from '../popup/popup.component';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { inputValidator } from '../validators/input-validator';
 
 @Component({
   selector: 'app-create',
@@ -12,22 +13,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
-  form!: FormGroup;
+  form: FormGroup = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    profession: new FormControl(''),
+    gender: new FormControl(''),
+    image: new FormControl(''),
+    day: new FormControl(''),
+    month: new FormControl(''),
+    year: new FormControl(''),
+  });
   modalRef!: NgbModalRef;
 
-  constructor(private userService: UserService,private fb: FormBuilder, 
-    private modalService: NgbModal, private router: Router) {}
+  constructor(private userService: UserService, private fb: FormBuilder,
+    private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      profession: [''],
-      gender: [''],
-      image: [''],
-      day: [''],
-      month: [''],
-      year: [''],
+      firstName: ['', [Validators.required, inputValidator()]],
+      lastName: ['', [Validators.required, inputValidator()]],
+      profession: ['', [Validators.required, inputValidator()]],
+      gender: ['', [Validators.required, inputValidator()]],
+      image: ['', [Validators.required, inputValidator()]],
+      day: ['', Validators.required],
+      month: ['', Validators.required],
+      year: ['', Validators.required],
     });
   }
 
@@ -40,13 +50,16 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
     let currentDate = new Date();
     let currentYear = currentDate.getFullYear();
     let calcAge = currentYear - this.form.value.year;
 
     let id = Math.floor(Math.random() * 100).toString();
 
-    const {...userData}: User = {
+    const { ...userData }: User = {
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       profession: this.form.value.profession,
@@ -59,7 +72,7 @@ export class CreateComponent implements OnInit {
       age: calcAge,
     };
 
-    this.userService.createUser(userData).subscribe(()=>{
+    this.userService.createUser(userData).subscribe(() => {
       this.router.navigate(['/']);
     })
     console.log(userData);
