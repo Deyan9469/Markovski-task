@@ -6,6 +6,7 @@ import { PopupComponent } from '../popup/popup.component';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { inputValidator } from '../validators/input-validator';
+import { imageValidator } from '../validators/imageHttp-validator';
 
 @Component({
   selector: 'app-create',
@@ -24,6 +25,7 @@ export class CreateComponent implements OnInit {
     year: new FormControl(''),
   });
   modalRef!: NgbModalRef;
+  selectedGender: string = '';
 
   constructor(private userService: UserService, private fb: FormBuilder,
     private modalService: NgbModal, private router: Router) { }
@@ -34,7 +36,7 @@ export class CreateComponent implements OnInit {
       lastName: ['', [Validators.required, inputValidator()]],
       profession: ['', [Validators.required, inputValidator()]],
       gender: ['', [Validators.required, inputValidator()]],
-      image: ['', [Validators.required, inputValidator()]],
+      image: ['', [Validators.required, imageValidator()]],
       day: ['', Validators.required],
       month: ['', Validators.required],
       year: ['', Validators.required],
