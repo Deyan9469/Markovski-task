@@ -14,9 +14,9 @@ export class PopupComponent {
 
   saveChanges() {
     this.saveChangesClicked.emit();
-    // this.route.navigate(['/'])
+    this.route.navigate(['/']);
   }
   closePopup() {
-    this.activeModal.dismiss(); // Dismiss modal when "Close" is clicked
+    this.activeModal.dismiss();
   }
 }

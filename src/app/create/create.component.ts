@@ -29,10 +29,10 @@ export class CreateComponent implements OnInit {
   }
 
   openPopup() {
-    this.modalRef = this.modalService.open(PopupComponent); // Assign modalRef
+    this.modalRef = this.modalService.open(PopupComponent);
     this.modalRef.componentInstance.saveChangesClicked.subscribe(() => {
-      this.onSubmit(); // Call onSubmit when "Save changes" is clicked
-      this.modalRef.close(); // Close modal after saving changes
+      this.onSubmit();
+      this.modalRef.close();
     });
   }
 
@@ -58,7 +58,7 @@ export class CreateComponent implements OnInit {
     console.log(userData);
     console.log(calcAge);
     console.log(id);
-    
+
   }
 }
 
