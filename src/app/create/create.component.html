@@ -19,7 +19,7 @@
 
           <label for="exampleInputgender" class="form-label">Gender</label>
           <select class="form-select" id="inputGroupSelect01" formControlName="gender">
-              <option *ngIf="!selectedGender" selected>Please select</option>
+              <option *ngIf="!selectedGender" [style]="{display: 'none'}" selected>Please select</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
