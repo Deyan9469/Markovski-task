@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from '../types/user';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModalRef
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PopupComponent } from '../popup/popup.component';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -11,9 +13,10 @@ import { PopupComponent } from '../popup/popup.component';
 })
 export class CreateComponent implements OnInit {
   form!: FormGroup;
-  modalRef!: NgbModalRef; // Declare NgbModalRef
+  modalRef!: NgbModalRef;
 
-  constructor(private fb: FormBuilder, private modalService: NgbModal) {}
+  constructor(private userService: UserService,private fb: FormBuilder, 
+    private modalService: NgbModal, private router: Router) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -43,7 +46,7 @@ export class CreateComponent implements OnInit {
 
     let id = Math.floor(Math.random() * 100).toString();
 
-    const userData: User = {
+    const {...userData}: User = {
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       profession: this.form.value.profession,
@@ -55,6 +58,10 @@ export class CreateComponent implements OnInit {
       _id: id,
       age: calcAge,
     };
+
+    this.userService.createUser(userData).subscribe(()=>{
+      this.router.navigate(['/']);
+    })
     console.log(userData);
     console.log(calcAge);
     console.log(id);
