@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,11 +9,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class PopupComponent {
   @Output() saveChangesClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private route: Router, private activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   saveChanges() {
     this.saveChangesClicked.emit();
-    this.route.navigate(['/']);
   }
   closePopup() {
     this.activeModal.dismiss();
