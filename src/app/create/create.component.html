@@ -3,20 +3,23 @@
       <div class="mb-3">
           <label for="exampleInputFirstName" class="form-label">First name</label>
           <input type="text" class="form-control" id="exampleInputFirstName" formControlName="firstName">
-          <div *ngIf="form.get('firstName')?.errors?.['required'] && form.get('firstName')?.touched">First name is required</div>
+          <div class="err" *ngIf="form.get('firstName')?.errors?.['required'] && form.get('firstName')?.touched">First name is required</div>
 
           <label for="exampleInputLastName" class="form-label">Last name</label>
           <input type="text" class="form-control" id="exampleInputLastName" formControlName="lastName">
+          <div class="err" *ngIf="form.get('lastName')?.errors?.['required'] && form.get('lastName')?.touched">Last name is required</div>
 
           <label for="exampleInputProfession" class="form-label">Profession</label>
           <input type="text" class="form-control" id="exampleInputProfession" formControlName="profession">
+          <div class="err" *ngIf="form.get('profession')?.errors?.['required'] && form.get('profession')?.touched">Profession is required</div>
 
           <label for="exampleInputImage" class="form-label">Image Url</label>
           <input type="text" class="form-control" id="exampleInputImage" formControlName="image">
+          <div class="err" *ngIf="form.get('image')?.errors?.['required'] && form.get('image')?.touched">Image link is required</div>
 
           <label for="exampleInputgender" class="form-label">Gender</label>
           <select class="form-select" id="inputGroupSelect01" formControlName="gender">
-              <option selected>Please select</option>
+              <option *ngIf="!selectedGender" selected>Please select</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
           </select>
