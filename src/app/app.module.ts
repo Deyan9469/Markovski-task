@@ -10,6 +10,8 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     CreateComponent,
     EditComponent,
-    HomeComponent
+    HomeComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from '../types/user';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModalRef
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css'],
 })
-
 export class CreateComponent implements OnInit {
   form!: FormGroup;
+  modalRef!: NgbModalRef; // Declare NgbModalRef
 
-  constructor(private fb: FormBuilder) { 
-
-  }
+  constructor(private fb: FormBuilder, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName:[''],
-      lastName:[''],
-      profession:[''],
-      gender:[''],
+      firstName: [''],
+      lastName: [''],
+      profession: [''],
+      gender: [''],
       image: [''],
       day: [''],
       month: [''],
-      year: ['']
+      year: [''],
+    });
+  }
+
+  openPopup() {
+    this.modalRef = this.modalService.open(PopupComponent); // Assign modalRef
+    this.modalRef.componentInstance.saveChangesClicked.subscribe(() => {
+      this.onSubmit(); // Call onSubmit when "Save changes" is clicked
+      this.modalRef.close(); // Close modal after saving changes
     });
   }
 
@@ -33,7 +41,7 @@ export class CreateComponent implements OnInit {
     let currentYear = currentDate.getFullYear();
     let calcAge = currentYear - this.form.value.year;
 
-    let id = Math.floor(Math. random() * 100).toString();
+    let id = Math.floor(Math.random() * 100).toString();
 
     const userData: User = {
       firstName: this.form.value.firstName,
@@ -50,6 +58,7 @@ export class CreateComponent implements OnInit {
     console.log(userData);
     console.log(calcAge);
     console.log(id);
+    
   }
-  
 }
+

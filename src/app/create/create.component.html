@@ -1,40 +1,40 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="container">
+<form [formGroup]="form">
+  <div class="container">
       <div class="mb-3">
-        <label for="exampleInputFirstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="exampleInputFirstName" formControlName="firstName">
-  
-        <label for="exampleInputLastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="exampleInputLastName" formControlName="lastName">
-  
-        <label for="exampleInputProfession" class="form-label">Profession</label>
-        <input type="text" class="form-control" id="exampleInputProfession" formControlName="profession">
-        
-        <label for="exampleInputImage" class="form-label">Image Url</label>
-        <input type="text" class="form-control" id="exampleInputImage" formControlName="image">        
-  
-        <label for="exampleInputgender" class="form-label">Gender</label>
-        <select class="form-select" id="inputGroupSelect01" formControlName="gender">
-          <option selected>Please select</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-  
-        <div class="row">
-          <div class="form-group col-sm-4">
-            <label for="day">Day</label>
-            <input type="number" id="day" class="form-control form-control-sm" formControlName="day" min="1" max="31">
+          <label for="exampleInputFirstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="exampleInputFirstName" formControlName="firstName">
+
+          <label for="exampleInputLastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="exampleInputLastName" formControlName="lastName">
+
+          <label for="exampleInputProfession" class="form-label">Profession</label>
+          <input type="text" class="form-control" id="exampleInputProfession" formControlName="profession">
+
+          <label for="exampleInputImage" class="form-label">Image Url</label>
+          <input type="text" class="form-control" id="exampleInputImage" formControlName="image">
+
+          <label for="exampleInputgender" class="form-label">Gender</label>
+          <select class="form-select" id="inputGroupSelect01" formControlName="gender">
+              <option selected>Please select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+
+          <div class="row">
+              <div class="form-group col-sm-4">
+                  <label for="day">Day</label>
+                  <input type="number" id="day" class="form-control form-control-sm" formControlName="day" min="1" max="31">
+              </div>
+              <div class="form-group col-sm-4">
+                  <label for="month">Month</label>
+                  <input type="number" id="month" class="form-control form-control-sm" formControlName="month" min="1" max="12">
+              </div>
+              <div class="form-group col-sm-4">
+                  <label for="year">Year</label>
+                  <input type="number" id="year" class="form-control form-control-sm" formControlName="year" min="1900" max="2024">
+              </div>
           </div>
-          <div class="form-group col-sm-4">
-            <label for="month">Month</label>
-            <input type="number" id="month" class="form-control form-control-sm" formControlName="month" min="1" max="12">
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="year">Year</label>
-            <input type="number" id="year" class="form-control form-control-sm" formControlName="year" min="1900" max="2024">
-          </div>
-        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
+      <button type="button" (click)="openPopup()" class="btn btn-primary">Submit</button>
+  </div>
+</form>
