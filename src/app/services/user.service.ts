@@ -14,6 +14,11 @@ export class UserService {
     return this.http.get<User[]>(this.url + '/users');
   }
 
+  getUserById(id: string) {
+    return this.http.get(`${this.url}/users/${id}`);
+
+  }
+
   createUser(userData: {
     id: string; firstName: string; lastName: string;
     profession: string; gender: string; image: string; age: number; day: number;
@@ -21,6 +26,15 @@ export class UserService {
   }) {
 
     return this.http.post<User>(`${this.url}/users`, userData)
+  }
+
+  updateUser(id: string, userData: {
+    id: string; firstName: string; lastName: string;
+    profession: string; gender: string; image: string; age: number; day: number;
+    month: number; year: number;
+  }) {
+
+    return this.http.put<User>(`${this.url}/users/${id}`, userData);
   }
 
   onDelete(id: string) {
