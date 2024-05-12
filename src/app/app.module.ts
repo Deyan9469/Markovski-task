@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PopupComponent } from './popup/popup.component';
+import { RouteGuard } from './app-guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { PopupComponent } from './popup/popup.component';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
