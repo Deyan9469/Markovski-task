@@ -15,7 +15,7 @@ export class UserService {
   }
 
   createUser(userData: {
-    _id: string; firstName: string; lastName: string;
+    id: string; firstName: string; lastName: string;
     profession: string; gender: string; image: string; age: number; day: number;
     month: number; year: number;
   }) {
@@ -23,7 +23,7 @@ export class UserService {
     return this.http.post<User>(`${this.url}/users`, userData)
   }
 
-  onDelete(_id: string) {
-    return this.http.delete(`${this.url}/${_id}`);
+  onDelete(id: string) {
+    return this.http.delete(`${this.url}/users/${id}`);
   }
 }

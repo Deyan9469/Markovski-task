@@ -73,7 +73,7 @@ export class CreateComponent implements OnInit {
       month: this.form.value.month,
       year: this.form.value.year,
       image: this.form.value.image,
-      _id: id,
+      id: id,
       age: calcAge,
     };
 
