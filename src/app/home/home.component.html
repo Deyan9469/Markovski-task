@@ -11,8 +11,8 @@
       <li class="list-group-item">Birth: {{user.day}}/{{user.month}}/{{user.year}}</li>
     </ul>
     <div class="card-body">
-      <a routerLink="/edit/{{user._id}}" class="btn btn-primary">Edit</a>
-      <a href="#" class="btn btn-primary">Delete</a>
+      <a routerLink="/edit/{{user.id}}" class="btn btn-primary">Edit</a>
+      <a routerLink="/" (click)="onDelete(user.id)" class="btn btn-primary">Delete</a>
     </div>
   </div>
 </div>

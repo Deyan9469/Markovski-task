@@ -17,4 +17,10 @@ export class HomeComponent implements OnInit {
       this.users = data
     })
   }
+
+  onDelete(id:string): void{
+    this.userService.onDelete(id).subscribe(()=>{
+      this.ngOnInit()
+    })
+  }
 }
