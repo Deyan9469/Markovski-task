@@ -10,6 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 4. In project terminal you can start the project with `npm run start` or `ng serve`
    
 From there Angular will generate <http://localhost:4200>, click it and view my project.
+<br>
 The server navigation is `http://localhost:3000/users`. You can do every CRUD operation.
 
 # Functionality of server
