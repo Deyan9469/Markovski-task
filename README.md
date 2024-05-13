@@ -14,5 +14,5 @@ From there Angular will generate <http://localhost:4200>, click it and view my p
 The server navigation is `http://localhost:3000/users`. You can do every CRUD operation.
 
 # Functionality of server
-The server that I'm using is from, this site [json-server](https://www.npmjs.com/package/json-server) ,
+The server that I'm using is from this site [json-server](https://www.npmjs.com/package/json-server) ,
 and helper site ([https://www.npmjs.com/package/json-server](https://moduscreate.com/blog/how-to-mock-data-in-angular-applications/))
