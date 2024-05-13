@@ -1,18 +1,42 @@
 <div class="container">
-<div class="card" *ngFor="let user of users">
-    <img src={{user.image}} class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+  <ng-container *ngFor="let user of pagedUsers">
+    <div class="card-container">
+      <div class="card">
+        <img [src]="user.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Profession: {{user.profession}}</li>
+          <li class="list-group-item">Genre: {{user.gender}}</li>
+          <li class="list-group-item">Age: {{user.age}}</li>
+          <li class="list-group-item">Birth: {{user.day}}/{{user.month}}/{{user.year}}</li>
+        </ul>
+        <div class="card-body">
+          <a routerLink="/edit/{{user.id}}" class="btn btn-primary">Edit</a>
+          <a routerLink="/" (click)="onDelete(user.id)" class="btn btn-primary">Delete</a>
+        </div>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Profession: {{user.profession}}</li>
-      <li class="list-group-item">Genre: {{user.gender}}</li>
-      <li class="list-group-item">Age: {{user.age}}</li>
-      <li class="list-group-item">Birth: {{user.day}}/{{user.month}}/{{user.year}}</li>
+  </ng-container>
+</div>
+
+<div class="pagination-container">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage == 1">
+        <a class="page-link" [routerLink]="['/']" [queryParams]="{ page: currentPage - 1 }" aria-label="Previous" (click)="goToPage(currentPage - 1)">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage == page">
+        <a class="page-link" [routerLink]="['/']" [queryParams]="{ page: page }" (click)="goToPage(page)">{{page}}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage == totalPages">
+        <a class="page-link" [routerLink]="['/']" [queryParams]="{ page: currentPage + 1 }" aria-label="Next" (click)="goToPage(currentPage + 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
     </ul>
-    <div class="card-body">
-      <a routerLink="/edit/{{user.id}}" class="btn btn-primary">Edit</a>
-      <a routerLink="/" (click)="onDelete(user.id)" class="btn btn-primary">Delete</a>
-    </div>
-  </div>
+  </nav>
 </div>

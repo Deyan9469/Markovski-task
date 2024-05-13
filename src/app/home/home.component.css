@@ -2,12 +2,33 @@
     margin: auto;
     padding: 40px 20px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; /* Allow cards to wrap to the next row */
     justify-content: space-between;
 }
-.card{
-    width: 25%;
+
+.card {
+    width: 115%; /* Adjust the width of each card */
+    margin-bottom: 20px;
+}
+.card-body{
+    display: flex;
+    justify-content: space-around;
 }
 .btn{
-    margin: 0px 10px;
+    width: 34%;
+    display: flex;
+    justify-content: center;
+}
+
+.card img {
+    width: 100%; /* Ensure images fill the entire width of the card */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent images from exceeding the width of the card */
+    max-height: 200px; /* Set maximum height for the images */
+}
+
+.pagination-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
